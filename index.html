@@ -9,20 +9,24 @@
 html,body{height:100%;overflow:hidden;background:#d7f3ee;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink)}
 canvas{position:fixed;inset:0;display:block;cursor:grab}
 canvas:active{cursor:grabbing}
-.card{position:fixed;left:50%;top:50%;transform:translate(-50%,-53%);width:min(1120px,calc(100% - 40px));max-height:calc(100vh - 150px);overflow-y:auto;scroll-behavior:smooth;padding:44px 52px;border-radius:32px;background:rgba(255,255,255,.95);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border:1px solid #fff;box-shadow:0 30px 80px -20px rgba(7,90,80,.4);transition:opacity .5s,transform .5s}
+.card{position:fixed;left:50%;top:calc(50% - 22px);transform:translate(-50%,-50%);width:min(1320px,calc(100vw - 48px));max-height:calc(100vh - 105px);overflow-y:auto;scroll-behavior:smooth;padding:clamp(18px,2.6vh,32px) clamp(22px,3vw,44px);border-radius:clamp(20px,2vw,30px);background:rgba(255,255,255,.95);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border:1px solid #fff;box-shadow:0 24px 70px -15px rgba(7,90,80,.35);transition:opacity .4s,transform .4s}
 .card::-webkit-scrollbar{width:8px}
 .card::-webkit-scrollbar-track{background:rgba(0,0,0,.05);border-radius:4px}
 .card::-webkit-scrollbar-thumb{background:rgba(10,95,88,.3);border-radius:4px}
 .card::-webkit-scrollbar-thumb:hover{background:rgba(10,95,88,.6)}
-.card.hide{opacity:0;transform:translate(-50%,-48%);pointer-events:none}
-.tag{font:600 .75rem 'Outfit';letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
-h1{font:700 clamp(1.8rem,4vw,3rem)/1.1 'Outfit';margin:10px 0}
-.sub{color:var(--mute);font-size:1.18rem;line-height:1.55;margin-bottom:24px;max-width:860px}.kb{margin-top:20px;padding:16px 22px;border-radius:16px;border-left:5px solid var(--acc);background:#d3eee6;color:var(--ink);font-size:1.05rem;line-height:1.5}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.it{background:#f1faf7;border:1px solid #b9e0d6;border-radius:18px;padding:20px 22px;box-shadow:0 4px 16px rgba(13,148,136,.1)}
-.it b{display:block;font:600 1.12rem 'Outfit';color:var(--acc);margin-bottom:8px}
-.it span{font-size:1.04rem;line-height:1.6;color:var(--ink)}
-.nav{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom,24px));transform:translateX(-50%);display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:999px;background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid #fff;max-width:calc(100% - 24px);z-index:10}
+.card.hide{opacity:0;transform:translate(-50%,-46%);pointer-events:none}
+.tag{font:600 clamp(.7rem,.85vw,.78rem) 'Outfit';letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+h1{font:700 clamp(1.45rem,2.4vw,2.2rem)/1.15 'Outfit';margin:clamp(4px,.8vh,8px) 0 clamp(6px,1vh,10px)}
+.sub{color:var(--mute);font-size:clamp(.92rem,1.05vw,1.06rem);line-height:1.45;margin-bottom:clamp(12px,1.6vh,20px);max-width:960px}
+.kb{margin-top:clamp(12px,1.5vh,18px);padding:clamp(10px,1.2vh,14px) clamp(16px,1.6vw,22px);border-radius:14px;border-left:4px solid var(--acc);background:#d3eee6;color:var(--ink);font-size:clamp(.86rem,.92vw,.98rem);line-height:1.45}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(10px,1.2vw,16px)}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.grid.cols-4{grid-template-columns:repeat(4,1fr)}
+.it{background:#f1faf7;border:1px solid #b9e0d6;border-radius:16px;padding:clamp(12px,1.5vh,18px) clamp(14px,1.4vw,20px);box-shadow:0 4px 14px rgba(13,148,136,.08)}
+.it b{display:block;font:600 clamp(.92rem,1vw,1.06rem) 'Outfit';color:var(--acc);margin-bottom:clamp(4px,.6vh,7px)}
+.it span{font-size:clamp(.82rem,.9vw,.96rem);line-height:1.45;color:var(--ink)}
+.nav{position:fixed;left:50%;bottom:max(16px,env(safe-area-inset-bottom,16px));transform:translateX(-50%);display:flex;align-items:center;gap:12px;padding:8px 14px;border-radius:999px;background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid #fff;max-width:calc(100% - 24px);z-index:10}
 button{font:600 .85rem 'Plus Jakarta Sans';border:0;border-radius:999px;padding:9px 16px;cursor:pointer;background:#fff;color:var(--ink);border:1px solid #b9e0d6;transition:transform .2s,box-shadow .2s,background .2s}
 button.p{background:linear-gradient(90deg,#047857,#0e7490);color:#fff;border:0}
 button.on{background:var(--ink);color:#fff}
@@ -30,8 +34,9 @@ button:focus,button:focus-visible,.d:focus,.d:focus-visible{outline:3px solid va
 .dots{display:flex;gap:6px;align-items:center}
 .d{width:10px;height:10px;border-radius:9px;background:#5fa89b;cursor:pointer;transition:.3s;border:0}
 .d.a{width:26px;background:var(--acc)}
-.hint{position:fixed;top:max(20px,env(safe-area-inset-top));right:24px;font-size:.82rem;color:var(--ink);background:var(--glass);padding:8px 14px;border-radius:999px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:opacity .4s;pointer-events:none;z-index:10}
-@media(max-width:640px){.card{padding:24px 20px;max-height:calc(100vh - 130px)}.d{display:none}.hint{display:none}}
+.hint{position:fixed;top:max(18px,env(safe-area-inset-top));right:24px;font-size:.82rem;color:var(--ink);background:var(--glass);padding:7px 14px;border-radius:999px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:opacity .4s;pointer-events:none;z-index:10}
+@media(max-width:960px){.grid.cols-4{grid-template-columns:repeat(2,1fr)}.grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}}
+@media(max-width:640px){.card{padding:20px 18px;max-height:calc(100vh - 110px);top:calc(50% - 15px)}.grid.cols-2,.grid.cols-3,.grid.cols-4{grid-template-columns:1fr}.d{display:none}.hint{display:none}}
 </style></head><body>
 <div class="card" id="card" tabindex="-1"></div>
 <div class="hint" id="hint">Remote: ◄ ► Slides · ▲ ▼ Scroll · OK Next</div>
@@ -65,7 +70,7 @@ S.forEach((_,i)=>{
 });
 function render(){
  const s=S[cur];
- card.innerHTML=`<div class="tag">${String(cur+1).padStart(2,'0')} · ${s.t}</div><h1>${s.h}</h1><p class="sub">${s.s}</p><div class="grid">${s.i.map(x=>`<div class="it"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div>${s.k?`<div class="kb">${s.k}</div>`:''}`;
+ card.innerHTML=`<div class="tag">${String(cur+1).padStart(2,'0')} · ${s.t}</div><h1>${s.h}</h1><p class="sub">${s.s}</p><div class="grid cols-${s.i.length}">${s.i.map(x=>`<div class="it"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div>${s.k?`<div class="kb">${s.k}</div>`:''}`;
  [...dots.children].forEach((d,i)=>d.classList.toggle('a',i===cur));
 }
 function go(i){cur=(i+N)%N;free=false;sync();render();card.scrollTop=0}
